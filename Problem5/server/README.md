@@ -108,3 +108,47 @@ Step 2:
   email : baphuc3112@gmail.com,
   password : @Phuc123
 }`
+
+- Create new a product. <br>
+  `Method : POST` <br>
+  `Url : http://localhost:4000/product/create-new-a-product` <br>
+  `Authorization : Bearer your_accesstoken` <br>
+  `Body : {
+   name : ???,
+   price : ???,
+   description : ???,
+   model : ???,
+   user_id : ??? // user_id == _id of user in database
+}`
+
+- Get all product. <br>
+  `Method : GET` <br>
+  `Url : http://localhost:4000/product/get-all-product` <br>
+  `Authorization : Bearer your_accesstoken` <br>
+  `Body : {
+   user_id : ??? // user_id == _id of user in database
+}`
+
+- Get product with id <br>
+  `Method : GET` <br>
+  `Url : http://localhost:4000/product/get-product/:id` <br>
+  `Authorization : Bearer your_accesstoken` <br>
+  `Body : {
+   user_id : ??? // user_id == _id of user in database
+}`
+
+- Update a product with id<br>
+  `Method : UPDATE` <br>
+  `Url : http://localhost:4000/product/update-product/:id` <br>
+  `Authorization : Bearer your_accesstoken` <br>
+  `Body : {
+   user_id : ??? // user_id == _id of user in database
+}`
+
+- Delete a product with id<br>
+  `Method : DELETE` <br>
+  `Url : http://localhost:4000/product/delete-product/:id` <br>
+  `Authorization : Bearer your_accesstoken` <br>
+  `Body : {
+   user_id : ??? // user_id == _id of user in database
+}`
