@@ -14,11 +14,11 @@
 
 ## List API CRUD:
 
-`Create a new product with method POST http://localhost:4000/product/create-new-a-product`.
-`Get all products with method GET http://localhost:4000/product/get-all-product`.
-`Get product by ID with method GET http://localhost:4000/product/get-product/:id`.
-`Update product by ID with method PUT http://localhost:4000/product/update-product/:id`.
-`Delete product by ID with method DELETE http://localhost:4000/product/delete-product/:id`.
+<p>Create a new product with method POST http://localhost:4000/product/create-new-a-product.</p>
+<p>Get all products with method GET http://localhost:4000/product/get-all-product.</p>
+<p>Get product by ID with method GET http://localhost:4000/product/get-product/:id.</p>
+<p>Update product by ID with method PUT http://localhost:4000/product/update-product/:id.</p>
+<p>Delete product by ID with method DELETE http://localhost:4000/product/delete-product/:id.</p>
 
 <a name="install"></a>
 
@@ -38,7 +38,7 @@ Install TypeScript data types for Node.js
 
 Install express
 
-> npm i express
+> npm i express <br>
 > npm i @types/express
 
 Install the remaining necessary config packages
