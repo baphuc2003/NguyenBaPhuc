@@ -14,7 +14,8 @@
 
 ## List API CRUD:
 
-<p>Create a new product with method POST http://localhost:4000/product/create-new-a-product.</p>
+`Create a new product with method POST http://localhost:4000/product/create-new-a-product` <br>
+
 <p>Get all products with method GET http://localhost:4000/product/get-all-product.</p>
 <p>Get product by ID with method GET http://localhost:4000/product/get-product/:id.</p>
 <p>Update product by ID with method PUT http://localhost:4000/product/update-product/:id.</p>
@@ -47,7 +48,7 @@ Install the remaining necessary config packages
 
 Install body-parser
 
-> npm i body-parser
+> npm i body-parser <br>
 > npm i @types/body-parser
 
 Install dotenv
@@ -56,7 +57,7 @@ Install dotenv
 
 Install lodash
 
-> npm i lodash
+> npm i lodash <br>
 > npm i @types/lodash
 
 Install express-validator
