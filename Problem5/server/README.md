@@ -15,11 +15,10 @@
 ## List API CRUD:
 
 `Create a new product with method POST http://localhost:4000/product/create-new-a-product` <br>
-
-<p>Get all products with method GET http://localhost:4000/product/get-all-product.</p>
-<p>Get product by ID with method GET http://localhost:4000/product/get-product/:id.</p>
-<p>Update product by ID with method PUT http://localhost:4000/product/update-product/:id.</p>
-<p>Delete product by ID with method DELETE http://localhost:4000/product/delete-product/:id.</p>
+`Get all products with method GET http://localhost:4000/product/get-all-product.` <br>
+`Get product by ID with method GET http://localhost:4000/product/get-product/:id.` <br>
+`Update product by ID with method PUT http://localhost:4000/product/update-product/:id.` <br>
+`Delete product by ID with method DELETE http://localhost:4000/product/delete-product/:id.` <br>
 
 <a name="install"></a>
 
