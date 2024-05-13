@@ -98,7 +98,7 @@ Step 2:
   sex : male
 }`
 
-- Login user.
+- Login user. <br>
   `Method : POST` <br>
   `Url : http://localhost:4000/user/login` <br>
   `Body : {
