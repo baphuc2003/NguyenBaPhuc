@@ -4,12 +4,14 @@ import productService from '~/services/product.services'
 export const createNewProductController = async (req: Request, res: Response) => {
   const result = await productService.createNewProduct(req.body)
   return res.status(200).json({
+    message: 'Create new a product successfully',
     result
   })
 }
 
 export const getAllProductController = async (req: Request, res: Response) => {
   const result = await productService.getAllProduct()
+  console.log('phuc')
   return res.status(200).json({
     message: 'Get all product successfully',
     result

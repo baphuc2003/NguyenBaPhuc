@@ -1,11 +1,19 @@
 import { Products } from '~/model/product.schema'
 import database from './database.services'
-import { ObjectId } from 'mongodb'
+import { DeleteResult, InsertOneResult, ObjectId, WithId } from 'mongodb'
 import { ErrorWithStatus } from '~/model/errors'
 
-class ProductServices {
-  async createNewProduct(payload: Products) {
-    await database.products.insertOne(
+interface ProductServiceImplement {
+  createNewProduct(payload: Products): Promise<InsertOneResult<Products>>
+  getAllProduct(): Promise<WithId<Products>[]>
+  getProductId(id: string): Promise<WithId<Products> | null>
+  updateProduct(id: string, payload: Products): Promise<WithId<Products> | null>
+  deleteProductController(id: string): Promise<DeleteResult>
+}
+
+class ProductServices implements ProductServiceImplement {
+  public async createNewProduct(payload: Products) {
+    return await database.products.insertOne(
       new Products({
         name: payload.name,
         price: payload.price,
@@ -13,14 +21,13 @@ class ProductServices {
         model: payload.model
       })
     )
-    return 'Create new a product successfully!'
   }
 
-  async getAllProduct() {
+  public async getAllProduct(): Promise<WithId<Products>[]> {
     return await database.products.find().toArray()
   }
 
-  async getProductId(id: string) {
+  public async getProductId(id: string): Promise<WithId<Products> | null> {
     const product = await database.products.findOne({
       _id: new ObjectId(id)
     })
@@ -30,10 +37,10 @@ class ProductServices {
         message: `Product with id ${id} isn't exist`
       })
     }
-    return product
+    return product || null
   }
 
-  async updateProduct(id: string, payload: Products) {
+  public async updateProduct(id: string, payload: Products): Promise<WithId<Products> | null> {
     return await database.products.findOneAndUpdate(
       { _id: new ObjectId(id) },
       {
@@ -46,7 +53,7 @@ class ProductServices {
     )
   }
 
-  async deleteProductController(id: string) {
+  public async deleteProductController(id: string): Promise<DeleteResult> {
     return await database.products.deleteOne({
       _id: new ObjectId(id)
     })

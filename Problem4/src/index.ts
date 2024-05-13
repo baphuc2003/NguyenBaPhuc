@@ -1,3 +1,4 @@
+// Use loops
 function sum_to_n_a(n: number): number {
   let sum = 0;
   for (let i = 1; i <= n; i++) {
@@ -6,6 +7,7 @@ function sum_to_n_a(n: number): number {
   return sum;
 }
 
+// Use recursive
 function sum_to_n_b(n: number): number {
   if (n == 1) {
     return 1;
@@ -13,6 +15,7 @@ function sum_to_n_b(n: number): number {
   return sum_to_n_b(n - 1) + n;
 }
 
+//Use linked list
 class Node {
   value: number;
   next: Node | null;
@@ -55,10 +58,15 @@ class Node {
     return sum;
   }
 }
-
 const node = Node.createLinkedList(3);
 // console.log(Node.printLinkedList(node));
+
+//Use formula for calculating the sum of terms
+function sum_to_n_d(n: number): number {
+  return (n * (n + 1)) / 2;
+}
 
 console.log(sum_to_n_a(5));
 console.log(sum_to_n_b(5));
 console.log(Node.sum_to_n_c(5));
+console.log(sum_to_n_d(5));

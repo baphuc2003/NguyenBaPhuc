@@ -7,6 +7,7 @@ import productRoute from './routes/product.route'
 import { omit } from 'lodash'
 import { ErrorWithStatus } from './model/errors'
 import { Request, Response } from 'express'
+import usersRouter from './routes/user.route'
 
 const app = express()
 
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use('/product', productRoute)
+app.use('/user', usersRouter)
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof ErrorWithStatus) {
