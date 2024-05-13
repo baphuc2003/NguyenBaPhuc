@@ -86,8 +86,8 @@ Step 2:
 
 - Register for new a user. <br>
 
-`Method : POST
-Url : http://localhost:4000/product/create-new-a-product
+`Method : POST <br>
+Url : http://localhost:4000/product/create-new-a-product <br>
 Body : {
   firstName : Nguyen
   lastName : Ba Phuc
