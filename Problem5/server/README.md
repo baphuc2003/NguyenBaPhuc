@@ -84,14 +84,16 @@ Step 2:
 
 ## IV. Test API by Postman
 
+#### For example
+
 - Register for new a user. <br>
 
 `Method : POST` <br>
 `Url : http://localhost:4000/product/create-new-a-product` <br>
 `Body : {
-  firstName : Nguyen
-  lastName : Ba Phuc
-  email : baphuc3112@gmail.com
-  password : @Phuc123
+  firstName : Nguyen,
+  lastName : Ba Phuc,
+  email : baphuc3112@gmail.com,
+  password : @Phuc123,
   sex : male
 }`
