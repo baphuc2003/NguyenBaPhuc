@@ -7,6 +7,7 @@
 - [1. List API](#listapi)
 - [2. Install](#install)
 - [3. Run app](#runapp)
+- [4. Test API by Postman](#test)
 
 <a name="introduction"></a>
 
@@ -78,3 +79,19 @@ Step 1:
 Step 2:
 
 > npm run dev
+
+<a name="test"></a>
+
+## IV. Test API by Postman
+
+- Register for new a user
+  `
+  Method : POST
+  Url : http://localhost:4000/product/create-new-a-product
+  Body : {
+    firstName : Nguyen
+    lastName : Ba Phuc
+    email : baphuc3112@gmail.com
+    password : @Phuc123
+    sex : male
+  }`
