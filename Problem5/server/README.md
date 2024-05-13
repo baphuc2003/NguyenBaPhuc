@@ -89,11 +89,19 @@ Step 2:
 - Register for new a user. <br>
 
 `Method : POST` <br>
-`Url : http://localhost:4000/product/create-new-a-product` <br>
+`Url : http://localhost:4000/user/register` <br>
 `Body : {
   firstName : Nguyen,
   lastName : Ba Phuc,
   email : baphuc3112@gmail.com,
   password : @Phuc123,
   sex : male
+}`
+
+- Login user.
+  `Method : POST` <br>
+  `Url : http://localhost:4000/user/login` <br>
+  `Body : {
+  email : baphuc3112@gmail.com,
+  password : @Phuc123
 }`
