@@ -84,6 +84,8 @@ Step 2:
 
 ## IV. Test API by Postman
 
+### Note: Must have a user account and log in to receive AccessToken.
+
 #### For example
 
 - Register for new a user. <br>
@@ -99,6 +101,7 @@ Step 2:
 }`
 
 - Login user. <br>
+
   `Method : POST` <br>
   `Url : http://localhost:4000/user/login` <br>
   `Body : {
