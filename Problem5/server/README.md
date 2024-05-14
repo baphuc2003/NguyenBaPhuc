@@ -110,6 +110,7 @@ Step 2:
 }`
 
 - Create new a product. <br>
+
   `Method : POST` <br>
   `Url : http://localhost:4000/product/create-new-a-product` <br>
   `Authorization : Bearer your_accesstoken` <br>
@@ -120,40 +121,44 @@ Step 2:
    model : ???,
    user_id : ???  
 }` <br>
-  `Note: user_id == _id of user in database`
+  `Note: user_id == _id document of user in database or when you log in, the result returned will have user_id`
 
 - Get all product. <br>
+
   `Method : GET` <br>
   `Url : http://localhost:4000/product/get-all-product` <br>
   `Authorization : Bearer your_accesstoken` <br>
   `Body : {
    user_id : ??? 
 }`<br>
-  `Note: user_id == _id of user in database`
+  `Note: user_id == _id document of user in database or when you log in, the result returned will have user_id`
 
 - Get product with id <br>
+
   `Method : GET` <br>
   `Url : http://localhost:4000/product/get-product/:id` <br>
   `Authorization : Bearer your_accesstoken` <br>
   `Body : {
    user_id : ??? 
 }`<br>
-  `Note: user_id == _id of user in database`
+  `Note: user_id == _id document of user in database or when you log in, the result returned will have user_id`
 
 - Update a product with id<br>
+
   `Method : UPDATE` <br>
   `Url : http://localhost:4000/product/update-product/:id` <br>
   `Authorization : Bearer your_accesstoken` <br>
   `Body : {
    user_id : ??? 
 }`<br>
-  `Note: user_id == _id of user in database`
+  `Note: user_id == _id document of user in database or when you log in, the result returned will have user_id`
 
 - Delete a product with id<br>
+
   `Method : DELETE` <br>
   `Url : http://localhost:4000/product/delete-product/:id` <br>
   `Authorization : Bearer your_accesstoken` <br>
   `Body : {
    user_id : ??? 
 }`<br>
-  `Note: user_id == _id of user in database`
+  `Note: user_id == _id document of user in database or when you log in, the result returned will have      user_id`
