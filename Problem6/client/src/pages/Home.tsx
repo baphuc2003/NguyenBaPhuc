@@ -4,6 +4,7 @@ import { UserContext } from "../App";
 import { AxiosImplement } from "../Services/AxiosService";
 import "../style/Home.css";
 import { io, Socket } from "socket.io-client";
+import Swal from "sweetalert2";
 
 interface User {
   _id: string;
@@ -13,7 +14,7 @@ interface User {
 
 export default function Home() {
   const [listUser, setListUser] = useState<User[]>([]);
-  const user_id = localStorage.getItem("user_id");
+  const user_id = localStorage.getItem("user_id") as string;
   const axios = useContext(UserContext) as AxiosImplement;
   const socketRef = useRef<Socket | null>(null);
 
@@ -72,7 +73,26 @@ export default function Home() {
   }, [user_id]);
 
   const handleIncrease = () => {
-    socketRef.current?.emit("liked", user_id);
+    const access_token = localStorage.getItem("access_token");
+    // socketRef.current?.emit("liked", user_id);
+    const user = listUser.filter((user) => {
+      return user._id === user_id;
+    });
+    const currentPoint = user[0].point;
+    socketRef.current?.emit("liked", { user_id, currentPoint, access_token });
+    socketRef.current?.on("loginRequired", ({ message }) => {
+      if (message) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Please login again",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = "/login";
+          }
+        });
+      }
+    });
   };
 
   const handleUpdatePoint = async (userId: string, point: number) => {

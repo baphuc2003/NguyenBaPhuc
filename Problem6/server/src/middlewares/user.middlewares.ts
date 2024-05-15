@@ -198,3 +198,17 @@ export const pointValidator = checkSchema(
   },
   ['body']
 )
+
+export const accessTokenAuthorization = async (userId: string, accessToken: string) => {
+  const publicKey = await database.publicKey.findOne({ user_id: new ObjectId(userId) })
+  if (!publicKey) {
+    throw new ErrorWithStatus({
+      status: 404,
+      message: 'Not found public key'
+    })
+  }
+  const decoded_access_token = await decodeToken({ token: accessToken, secretKey: publicKey.token })
+  if (decoded_access_token) {
+    return true
+  }
+}

@@ -10,29 +10,97 @@
 
 #### Below is a diagram illustrating the flow of the application when the user interacts with the server.
 
-    +-------------------+        +-------------------------+       +---------------------+
-    | Client            |         | API Service             |       | Database            |
-    +-------------------+                +-------------------------+       +---------------------+
-            |                            |                                        |
-            |                            |                                        |
-            |Dispatch action(update point)        |                               |
-            |--------------------------->|                                        |
-            |                            |                                        |
-            |                            |Authenticate user(user_id & access_token)
-            |                            |--------------------------------------->|
-            |                            |                                        |
-            |                            |   Update user score                    |
-            |                            |<-------------------------------        |
-            |                            |                                        |
-            |                            |   Broadcast updated scores             |
-            |                            |------------------------------->        |
-            |                            |                                        |
-            |                            |                                        |
-            |                            |                                        |
-            |     Display updated        |                                        |
-            |     scores on scoreboard   |                                        |
-            |<---------------------------|                                        |
-            |                            |                                        |
+            +-------------------+
+            |       Client      |
+            +-------------------+
+                      |
+                      |
+                      | Done login
+                      |
+                      |
+            +-------------------+
+            |       Home        |
+            +-------------------+
+                      |
+                      |
+                      |
+                      |
+                      |
+            +-------------------+
+            |       Client      |
+            +-------------------+
+                      |
+                      |
+                      | Click "Increase" button
+                      |
+                      |
+            +-------------------+
+            |       Websocket   |
+            +-------------------+
+                      |
+                      |
+                      | Send "liked" event with {user_id , currentPoint , access_token}
+                      |
+                      |
+            +-------------------+
+            |       Server      |
+            +-------------------+
+                      |
+                      |
+                      | Receive "liked" event with {user_id , currentPoint , access_token}
+                      |
+                      |
+            +-------------------+
+            | Authentication    |
+            +-------------------+
+                      |
+                      |
+                      | Decoded access_token
+                      |
+                      |
+    False _ _ _ _ _ _ |_ _ _ _ _ _ _ _ _ _ _ _ _ _ _True
+    |                                                 |
+    Login again!                                      |
+                                                      |
+                                                      |
+                                                      |
+                                                      |
+                                                      |
+                                          +-------------------+
+                                          |       Websocket   |
+                                          +-------------------+
+                                                      |
+                                                      |
+                                                      | Emit "likedupdate" event with {user_id, count}
+                                                      |
+                                                      |
+                                          +-------------------+
+                                          |       Client      |
+                                          +-------------------+
+                                                      |
+                                                      |
+                                                      | Receives "likedupdate" event with {user_id, count}
+                                                      |
+                                                      |
+                                          +-------------------+
+                                          |       Update UI   |
+                                          +-------------------+
+                                                      |
+                                                      |
+                                                      | Update point
+                                                      |
+                                                      |
+                                          +-------------------+
+                                          |  Database Services|
+                                          +-------------------+
+                                                      |
+                                                      |
+                                                      | Query and update point of user
+                                                      |
+                                                      |
+                                          +-------------------+
+                                          |       Done        |
+                                          +-------------------+
 
 <a name="install"></a>
 

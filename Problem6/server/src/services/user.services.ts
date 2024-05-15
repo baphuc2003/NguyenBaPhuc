@@ -140,12 +140,6 @@ class UsersServices {
   }
 
   async updatePointUser(user_id: string, point: number) {
-    console.log('check 145 ', user_id)
-    // return await database.users.findOneAndUpdate(
-    //   { _id: new ObjectId(user_id) },
-    //   { $set: { point: point } },
-    //   { returnDocument: 'after' }
-    // )
     return await database.users.updateOne({ _id: new ObjectId(user_id) }, { $set: { point: point } })
   }
 }

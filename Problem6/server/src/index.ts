@@ -8,6 +8,7 @@ import usersRouter from './routes/user.route'
 import cors from 'cors'
 import { Server } from 'socket.io'
 import { createServer } from 'http'
+import { accessTokenAuthorization } from './middlewares/user.middlewares'
 
 const app = express()
 
@@ -32,10 +33,15 @@ io.on('connection', (socket) => {
     socket.emit('likedupdate', userLikes[user_id])
   })
 
-  socket.on('liked', (user_id) => {
-    if (userLikes[user_id] !== undefined) {
-      userLikes[user_id]++
-      io.emit('likedupdate', { user_id, count: userLikes[user_id] })
+  socket.on('liked', async ({ user_id, currentPoint, access_token }) => {
+    try {
+      const decoded_access_token = await accessTokenAuthorization(user_id, access_token)
+      if (userLikes[user_id] !== undefined) {
+        userLikes[user_id] = currentPoint + 1
+        io.emit('likedupdate', { user_id, count: userLikes[user_id] })
+      }
+    } catch (error) {
+      socket.emit('loginRequired', { message: 'Please login again!' })
     }
   })
 
