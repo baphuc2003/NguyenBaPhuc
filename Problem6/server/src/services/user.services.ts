@@ -11,7 +11,6 @@ import { TokenType } from '~/constant/enum'
 
 class UsersServices {
   async register(payload: User) {
-    console.log('check User ', payload)
     const user_id = new ObjectId()
     const { privateKey, publicKey } = generateKey()
     //hash password

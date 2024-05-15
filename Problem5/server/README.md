@@ -13,13 +13,13 @@
 
 ## I. Introduction
 
-## List API CRUD:
+## List API CRUD and API user:
 
-`Create a new product with method POST http://localhost:4000/product/create-new-a-product` <br>
-`Get all products with method GET http://localhost:4000/product/get-all-product.` <br>
-`Get product by ID with method GET http://localhost:4000/product/get-product/:id.` <br>
-`Update product by ID with method PUT http://localhost:4000/product/update-product/:id.` <br>
-`Delete product by ID with method DELETE http://localhost:4000/product/delete-product/:id.` <br>
+`Create a new product with method POST http://localhost:4001/product/create-new-a-product` <br>
+`Get all products with method GET http://localhost:4001/product/get-all-product.` <br>
+`Get product by ID with method GET http://localhost:4001/product/get-product/:id.` <br>
+`Update product by ID with method PUT http://localhost:4001/product/update-product/:id.` <br>
+`Delete product by ID with method DELETE http://localhost:4001/product/delete-product/:id.` <br>
 
 <a name="install"></a>
 
@@ -68,6 +68,16 @@ Install mongodb
 
 > npm i mongodb
 
+Install jsonwebtoken
+
+> npm i jsonwebtoken <br>
+> npm i @types/jsonwebtoken
+
+Install bcrypt
+
+> npm i bcrypt <br>
+> npm i @types/bcrypt
+
 <a name="runapp"></a>
 
 ## III. Run app
@@ -91,11 +101,11 @@ Step 2:
 - Register for new a user. <br>
 
 `Method : POST` <br>
-`Url : http://localhost:4000/user/register` <br>
+`Url : http://localhost:4001/user/register` <br>
 `Body : {
   firstName : Nguyen,
   lastName : Ba Phuc,
-  email : baphuc3112@gmail.com,
+  email : abc10@gmail.com,
   password : @Phuc123,
   sex : male
 }`
@@ -103,62 +113,60 @@ Step 2:
 - Login user. <br>
 
   `Method : POST` <br>
-  `Url : http://localhost:4000/user/login` <br>
+  `Url : http://localhost:4001/user/login` <br>
   `Body : {
-  email : baphuc3112@gmail.com,
+  email : abc10@gmail.com,
   password : @Phuc123
 }`
 
 - Create new a product. <br>
 
   `Method : POST` <br>
-  `Url : http://localhost:4000/product/create-new-a-product` <br>
+  `Url : http://localhost:4001/product/create-new-a-product` <br>
   `Authorization : Bearer your_accesstoken` <br>
+  `Headers : {user_id : ???}`<br>
   `Body : {
    name : ???,
    price : ???,
    description : ???,
    model : ???,
-   user_id : ???  
-}` <br>
+}`<br>
   `Note: user_id == _id document of user in database or when you log in, the result returned will have user_id`
 
 - Get all product. <br>
 
   `Method : GET` <br>
-  `Url : http://localhost:4000/product/get-all-product` <br>
+  `Url : http://localhost:4001/product/get-all-product` <br>
   `Authorization : Bearer your_accesstoken` <br>
-  `Body : {
-   user_id : ??? 
-}`<br>
+  `Headers : {user_id : ???}`<br>
   `Note: user_id == _id document of user in database or when you log in, the result returned will have user_id`
 
 - Get product with id <br>
 
   `Method : GET` <br>
-  `Url : http://localhost:4000/product/get-product/:id` <br>
+  `Url : http://localhost:4001/product/get-product/:id` <br>
   `Authorization : Bearer your_accesstoken` <br>
-  `Body : {
-   user_id : ??? 
-}`<br>
+  `Headers : {user_id : ???}`<br>
   `Note: user_id == _id document of user in database or when you log in, the result returned will have user_id`
 
 - Update a product with id<br>
 
   `Method : UPDATE` <br>
-  `Url : http://localhost:4000/product/update-product/:id` <br>
+  `Url : http://localhost:4001/product/update-product/:id` <br>
   `Authorization : Bearer your_accesstoken` <br>
+  `Headers : {user_id : ???}`<br>
   `Body : {
-   user_id : ??? 
-}`<br>
+  name : ???,
+  price : ???,
+  description : ???,
+  model : ???
+}` <br>
   `Note: user_id == _id document of user in database or when you log in, the result returned will have user_id`
 
 - Delete a product with id<br>
 
   `Method : DELETE` <br>
-  `Url : http://localhost:4000/product/delete-product/:id` <br>
+  `Url : http://localhost:4001/product/delete-product/:id` <br>
   `Authorization : Bearer your_accesstoken` <br>
-  `Body : {
-   user_id : ??? 
-}`<br>
+  `Headers : {user_id : ???}`<br>
   `Note: user_id == _id document of user in database or when you log in, the result returned will have user_id`

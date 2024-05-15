@@ -158,7 +158,7 @@ export const userIdValidator = checkSchema(
       }
     }
   },
-  ['body']
+  ['headers']
 )
 
 export const accessTokenValidator = checkSchema(

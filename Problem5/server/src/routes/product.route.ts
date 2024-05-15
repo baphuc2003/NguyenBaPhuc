@@ -34,10 +34,18 @@ productRoute.get(
 )
 productRoute.put(
   '/update-product/:id',
+  validate(userIdValidator),
+  validate(accessTokenValidator),
   validate(productIdValidator),
   validate(updateProductValidator),
   wrapAsync(updateProductController)
 )
-productRoute.delete('/delete-product/:id', validate(productIdValidator), wrapAsync(deleteProductController))
+productRoute.delete(
+  '/delete-product/:id',
+  validate(userIdValidator),
+  validate(accessTokenValidator),
+  validate(productIdValidator),
+  wrapAsync(deleteProductController)
+)
 
 export default productRoute
