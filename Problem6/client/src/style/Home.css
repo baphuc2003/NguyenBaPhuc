@@ -1,0 +1,48 @@
+h1 {
+  font-size: 50px;
+  color: #f3453f;
+  margin-bottom: 20px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.td {
+  color: #f3453f;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.td_2 {
+  color: #00504b;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.func {
+  margin-top: 20px;
+}
+
+.func > button {
+  padding: 20px 10px;
+  color: #ffffff;
+  background-color: #f3453f;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}

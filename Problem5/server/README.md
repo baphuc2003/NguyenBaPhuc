@@ -161,4 +161,4 @@ Step 2:
   `Body : {
    user_id : ??? 
 }`<br>
-  `Note: user_id == _id document of user in database or when you log in, the result returned will have      user_id`
+  `Note: user_id == _id document of user in database or when you log in, the result returned will have user_id`
