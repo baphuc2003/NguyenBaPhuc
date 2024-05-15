@@ -19,32 +19,6 @@ export default function FormLogin({
   dataForm,
   setDataForm,
 }: FormLoginProps) {
-  //   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
-  //   const [dataForm, setDataForm] = useState({
-  //     email: "",
-  //     password: "",
-  //   });
-
-  //   const handleSignin = async (event: any) => {
-  //     event.preventDefault();
-  //     try {
-  //       const res = await axios.post(
-  //         "http://localhost:4000/users/login",
-  //         dataForm
-  //       );
-  //       if (res.data) {
-  //         // window.history.replaceState(null, "", "/");
-  //         window.location.href = "/";
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //       Swal.fire({
-  //         icon: "error",
-  //         title: "Oops...",
-  //         text: "Email hoặc mật khẩu chưa chính xác",
-  //       });
-  //     }
-  //   };
   return (
     <>
       <div className="container_form">
@@ -75,7 +49,7 @@ export default function FormLogin({
             />
 
             <div className="des">
-              <a href="http://localhost:3000/forgot-password">Quên mật khẩu</a>
+              <a href="#">Quên mật khẩu</a>
               <p>
                 Những người dùng dịch vụ của chúng tôi có thể đã tải thông tin
                 liện hệ bạn lên này.
