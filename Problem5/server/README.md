@@ -13,7 +13,7 @@
 
 ## I. Introduction
 
-## List API CRUD and API user:
+## List API CRUD:
 
 `Create a new product with method POST http://localhost:4001/product/create-new-a-product` <br>
 `Get all products with method GET http://localhost:4001/product/get-all-product.` <br>
