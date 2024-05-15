@@ -69,8 +69,8 @@ Install cors
 
 Install socket.io
 
-> npm install socket.io
-> npm install --save-optional bufferutil utf-8-validate <br>
+> npm install socket.io <br>
+> npm install --save-optional bufferutil utf-8-validate
 
 <a name="runserver"></a>
 
