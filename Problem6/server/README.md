@@ -1,4 +1,4 @@
-# API shows the top 10 user’s scores.
+# Server shows the top 10 user’s scores.
 
 [I. Introduction](#introduction)
 
