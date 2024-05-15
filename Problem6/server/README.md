@@ -2,12 +2,41 @@
 
 [I. Introduction](#introduction)
 
-- [1. Install](#install)
-- [2. Run server](#runserver)
+- [1. Illustrative diagram](#diagram)
+- [2. Install](#install)
+- [3. Run server](#runserver)
+
+<a name="diagram"></a>
+
+#### Below is a diagram illustrating the flow of the application when the user interacts with the server.
+
+    +-------------------+        +-------------------------+       +---------------------+
+    | Client            |         | API Service             |       | Database            |
+    +-------------------+                +-------------------------+       +---------------------+
+            |                            |                                        |
+            |                            |                                        |
+            |Dispatch action(update point)        |                               |
+            |--------------------------->|                                        |
+            |                            |                                        |
+            |                            |Authenticate user(user_id & access_token)
+            |                            |--------------------------------------->|
+            |                            |                                        |
+            |                            |   Update user score                    |
+            |                            |<-------------------------------        |
+            |                            |                                        |
+            |                            |   Broadcast updated scores             |
+            |                            |------------------------------->        |
+            |                            |                                        |
+            |                            |                                        |
+            |                            |                                        |
+            |     Display updated        |                                        |
+            |     scores on scoreboard   |                                        |
+            |<---------------------------|                                        |
+            |                            |                                        |
 
 <a name="install"></a>
 
-## I. Install
+## II. Install
 
 Create a project Node.js(v16.20.1)
 
@@ -74,7 +103,7 @@ Install socket.io
 
 <a name="runserver"></a>
 
-## II. Run app
+## III. Run app
 
 Step 1:
 
